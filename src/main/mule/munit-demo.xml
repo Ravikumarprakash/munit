@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="0365dcaf-3537-4778-b572-cfba3e0a8282" >
+		<http:listener-connection host="localhost" port="8081" />
+	</http:listener-config>
+	<flow name="userflow" doc:id="b70194bf-3627-4f36-b79e-a48fbdb2134a" >
+		<http:request method="GET" doc:name="Request" doc:id="a87771d6-7c0c-4f13-b51d-6f615ccefff5" url="http://reqres.in/api/users/2" />
+	</flow>
+	<flow name="munit-demoFlow" doc:id="c5d4aad3-c27a-4e85-b94e-976ad8af2471" >
+		<http:listener doc:name="Listener" doc:id="1d232254-18d3-4e3e-82a1-bd7ed5d195fb" config-ref="HTTP_Listener_config" path="/Munit"/>
+		<flow-ref doc:name="Flow Reference" doc:id="594db3a1-fc21-4bf8-a64f-729db839444c" name="userflow" />
+		<set-payload value="#['Hello world']" doc:name="Set Payload" doc:id="ff2c329e-ca85-4bb2-8dac-8bcfe2cea611" />
+	</flow>
+</mule>
