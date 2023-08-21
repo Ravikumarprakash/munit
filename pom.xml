@@ -54,7 +54,7 @@
 					</coverage>
 					<cloudHubDeployment>
 						<uri>https://anypoint.mulesoft.com</uri>
-						<muleVersion>4.4.0</muleVersion>
+						<mule.runtime.version>4.4.0</mule.runtime.version>
 						<server>connectedapp</server>
 						<applicationName>${project.artifactId}--v1-${mule.env}</applicationName>
 						<environment>Sandbox</environment>
